@@ -15,3 +15,14 @@ Because we use the last checkpoint of BERT to predict, so the development set is
 we just set an example for mrc data
 ### data_sone
 we just set an example for SOne data
+for SOne model, the type information is defined in advance. For example, normalize_bert.npy is bert representation of guideline information.
+
+### RUN
+1. run MRC-based model
+bash run_mrc.sh
+2. run SOne-based model
+bash run_sone.sh
+
+### decode
+get the answer of submit file format
+python trans2answer.py

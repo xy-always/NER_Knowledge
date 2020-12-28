@@ -588,7 +588,7 @@ def model_fn_builder(bert_config, num_labels, init_checkpoint, learning_rate, ot
     '''
     tf.logging.info("**** Trainable Variables ****")
 
-    # 打印加载模型的参数
+    # print the parameters of model
     for var in tvars:
         init_string = ""
         if var.name in initialized_variable_names:

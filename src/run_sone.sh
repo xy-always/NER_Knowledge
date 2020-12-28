@@ -1,2 +1,19 @@
 #!/bin/bash
-CUDA_VISIBLE_DEVICES=1 python3 SOne.py  --task_name="ner"  --do_train=True  --do_eval=True   --do_predict=True --data_dir=../data/data_hierarchy   --vocab_file=/disk2/xy_disk2/BERT_NER_RC/bert_model/multi_cased_L-12_H-768_A-12/vocab.txt  --bert_config_file=/disk2/xy_disk2/BERT_NER_RC/bert_model/multi_cased_L-12_H-768_A-12/bert_config.json --init_checkpoint=/disk2/xy_disk2/BERT_NER_RC/bert_model/multi_cased_L-12_H-768_A-12/bert_model.ckpt   --max_seq_length=230   --train_batch_size=1  --learning_rate=2e-5 --other_learning_rate=2e-5  --num_train_epochs=20 --output_dir=./output_test
+export BERT_CHECKPOINT =
+export BERT_VOCAB = 
+export BERT_CONFIG = 
+CUDA_VISIBLE_DEVICES=1 python3 SOne.py  \
+        --task_name="ner"  \
+        --do_train=True  \
+        --do_eval=True  \
+        --do_predict=True \
+        --data_dir=../data/data_hierarchy \
+        --vocab_file=$BERT_VOCAB  \
+        --bert_config_file=$BERT_CONFIG \
+        --init_checkpoint=$BERT_CHECKPOINT \
+        --max_seq_length=230   \
+        --train_batch_size=20  \
+        --learning_rate=2e-5  \
+        --other_learning_rate=2e-5  \
+        --num_train_epochs=20  \
+        --output_dir=./output_test

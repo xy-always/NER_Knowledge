@@ -291,6 +291,7 @@ class NerProcessor(DataProcessor):
       guid = "%s-%s" % (set_type, i)
       text_a = tokenization.convert_to_unicode(line[0].strip())
       text_b = None
+      # four kinds entity type
       start_labels1 = tokenization.convert_to_unicode(line[1].strip())
       end_labels1 = tokenization.convert_to_unicode(line[2].strip())
       start_labels2 = tokenization.convert_to_unicode(line[3].strip())
@@ -393,7 +394,6 @@ def convert_single_example(ex_index, example, label_map, max_seq_length, tokeniz
         all_start_labels4.append(0)
         all_end_labels4.append(0)
         segment_ids.append(0)
-
 
     # avoid tokenization problem      
     if tmp_e_label1 == '1':
@@ -650,6 +650,7 @@ def create_model(bert_config, is_training, input_ids, input_mask, segment_ids,\
   tag_information = tf.tile(tf.expand_dims(tag_information, 1), [1, FLAGS.max_seq_length, 1])
   tag_information = tf.tile(tf.expand_dims(tag_information, 1), [1, batch_size, 1, 1])
   tag_information = tf.cast(tag_information, dtype=tf.float32)
+  
   print(tag_information.shape)
   hidden_1 = tf.concat([output_layer, tag_information[0]], axis=-1)
   hidden_2 = tf.concat([output_layer, tag_information[1]], axis=-1)
