@@ -1,4 +1,9 @@
 # NER_Knowledge
+
+## Environment
+python:3.5
+tensorflow: 1.11
+
 ## MRC for NER
 use machine reading comprehension (MRC) model to solve NER task.
 each data is a tuple (question,passage,start_pisition,end_position)
