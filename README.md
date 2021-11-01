@@ -24,9 +24,9 @@ for SOne model, the type information is defined in advance. For example, normali
 
 ### RUN
 1. run MRC-based model
-bash run_mrc.sh
+* bash run_mrc.sh
 2. run SOne-based model
-bash run_sone.sh
+* bash run_sone.sh
 
 ### decode
 get the answer of submit file format
